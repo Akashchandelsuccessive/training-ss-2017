@@ -1,0 +1,412 @@
+<html>
+<body>
+
+<h1>Performing arithmetic operation</h1>
+<p id='firstnumberdisplay' >First Number: <label id='firstnumber'></label></p>
+<p id='secondnumberdisplay'>Second Number: <label id='secondnumber'></label></p>
+<p id='thirdnumberdisplay' >Arithmetic Operator: <label id='thirdnumber'></label></p>
+<p id='Resultdisplay' >Result: <label id='Result'></label></p>
+<button onclick="DisplayOutputArithmeticOperation()">Calculate</button>
+<button onclick="ResetOutputArithmeticOperation()">Reset</button>
+<hr><hr>
+
+<h1>First day of year(On 1st january) is Sunday</h1>
+<p><label id='resultDate' ></label></p>
+<button onclick="DisplayOutputFirstSunday()">Show years</button>
+
+<hr><hr>
+
+<h1>To check the entered value is an odd number or even or not a number</h1>
+<p>Enter the Number: <label id='value' style="display:none"></label></p>
+<p><label id='result' style="display:none"></label></p>
+<button onclick="DisplayOutputNanEvenOdd()">Calculate</button>
+<button onclick="ResetNanEvenOdd()">Reset</button>
+
+<hr><hr>
+
+<h1>Calculating all prime numbers between 1 to 999</h1>
+<p id="show"></label></p>
+<button onclick="printnumbers()">Calculate</button>
+<button onclick="ResetPrimeNumber()">Reset</button>
+
+<hr><hr>
+
+<h3> JavaScript program where the program takes a random integer between 1 to 10, the user is then prompted to input a guess number. 
+If the user input matches with guess number, the program will display a message "Good Work" otherwise display a message "Not matched".</h3>
+<p>User Value: <label id="userValue"></label>
+<p>Computer Value: <label id="compvalue"></label></p>
+<p>Result Value: <label id="resvalue" ></label></p>
+<button onclick="DisplayOutputRandomFunction()">Calculate</button>
+<button onclick="ResetOutputRandomFunction()">Reset</button>
+
+<hr><hr>
+
+<h1>Check date</h1>
+<p>Today is : <label id='todayDayLabel' ></label></p>
+<p>Today Date is: <label id='todayDateLabel' ></label></p>
+<p>Today date in format mm-dd-yyyy is: <label id='todayDateFormat1Label'</label></p>
+<p>Today date in format mm/dd/yyyy is: <label id='todayDateFormat2Label'</label></p>
+<button onclick="DisplayOutputTime()">Calculate</button>
+<button onclick="ResetTime()">Reset</button>
+
+<hr><hr>
+
+<h1>Sort below array by age.</h1>
+<p id="demo"></p>
+<button onclick="displayPeopleSort()">Display People</button>
+<button onclick="myFunctionSortAge();displayPeopleSort()">Sort Age</button>
+<button onclick="myFunctionSortName();displayPeopleSort()">Sort Name</button>
+
+<hr><hr>
+
+<h1>Unique character.</h1>
+<p><label id='uniqueString'></label></p>
+<p>The given Character set is: <label id="givenLength"></label></p>
+<p>The unique Character set is: <label id="uniqueLengthlabel"></label></p>
+<button onclick="unique_char()">Calculate Unique String</button>
+<button onclick="resetUniqueChar()">Reset</button>
+
+<script type="text/javascript">
+
+function DisplayOutputArithmeticOperation()
+{
+
+		var firstnumbercontainer= document.getElementById('firstnumber').style.display='inline-block';
+var secondnumbercontainer= document.getElementById('secondnumber').style.display='inline-block';
+var thirdnumbercontainer= document.getElementById('thirdnumber').style.display='inline-block';
+var resultcontainer=document.getElementById('Result').style.display='inline-block';
+		var input1= prompt("Enter the value 1");
+		document.getElementById('firstnumber').innerHTML=input1;
+		var firstnumbercontainer= document.getElementById('firstnumber').style.display='inline-block';
+			
+		
+		var input2= prompt("Enter the value 2");
+		document.getElementById('secondnumber').innerHTML=input2;
+		var secondnumbercontainer= document.getElementById('secondnumber').style.display='inline-block';
+		
+		
+		var input3= prompt("Enter the arithmetic operator");
+		document.getElementById('thirdnumber').innerHTML=input3;
+		var thirdnumbercontainer= document.getElementById('thirdnumber').style.display='inline-block';
+		var temp;
+	
+		
+		var checkArithmetic=1;
+			
+		if(input3=="*")
+		{ temp=input1*input2;
+		
+		}
+		else if(input3=="+")
+		{ temp=+input1 + +input2;
+		
+		}
+			else if(input3=="-")
+		{ temp=input1-input2;
+		
+		}
+			else if(input3=="/")
+		{ temp=input1/input2;
+		
+		}
+		else {
+			document.getElementById('Result').innerHTML="Enter valid arithmetic operator";
+			checkArithmetic=0;
+		}
+		if(checkArithmetic)
+		{
+		document.getElementById('Result').innerHTML='After performing operation the result is '+temp;
+		}var resultcontainer=document.getElementById('Result').style.display='inline-block';
+		
+		return;
+}
+function ResetOutputArithmeticOperation(){
+var firstnumbercontainer= document.getElementById('firstnumber').style.display='none';
+var secondnumbercontainer= document.getElementById('secondnumber').style.display='none';
+var thirdnumbercontainer= document.getElementById('thirdnumber').style.display='none';
+var resultcontainer=document.getElementById('Result').style.display='none';
+return;
+}
+
+function DisplayOutputFirstSunday()
+{		
+		document.getElementById('resultDate').style.display='inline-block';
+		for(var yr=2014;yr<=2050;yr++)
+		{
+			var d= new Date(yr,0,1);
+			if(d.getDay()==0)
+			{
+			var outputResult=document.getElementById('resultDate').innerHTML;
+			document.getElementById('resultDate').innerHTML=outputResult+"The year is "+yr+"<br>";
+			}
+		}
+}
+
+
+
+
+function DisplayOutputNanEvenOdd()
+{
+		var input= prompt("Enter the value");
+		document.getElementById('value').innerHTML='Enter the Number: '+input;
+		
+document.getElementById('result').style.display="block";
+		
+		if (isNaN(input))
+		{
+			alert("Value entered is not a number");
+			document.getElementById('result').innerHTML="Value entered is not a number";
+			
+		}
+		else if(input%1!=0)
+		{
+			alert("Please enter an integer value");
+			document.getElementById('result').innerHTML="Please enter an integer value";
+		}
+		else if(input%2==0)
+		{
+		alert("value is even");
+		document.getElementById('result').innerHTML="value is even";
+		}
+		else if (input%2==1)
+		{
+		alert("value is odd");
+		document.getElementById('result').innerHTML="value is odd";
+		}
+		return;
+}
+
+function ResetNanEvenOdd()
+{
+	document.getElementById('value').style.display="none";
+	document.getElementById('result').style.display="none";
+}
+
+function checkprimenumber(n)
+{
+
+  if (n===1)
+  {
+    return false;
+  }
+  else if(n === 2)
+  {
+    return true;
+  }else
+  {
+    for(var x = 2; x < n; x++)
+    {
+      if(n % x === 0)
+      {
+        return false;
+      }
+    }
+    return true;  
+  }
+}
+
+function printprimenumber(numb)
+{
+if(checkprimenumber(numb) == true)
+{
+console.log(numb+" is Prime Number ");
+var oldhtml=document.getElementById('show').innerHTML;
+document.getElementById('show').innerHTML = oldhtml+numb+' is Prime Number <br>';
+
+}
+
+}
+
+function printnumbers()
+{
+var range=999;
+for(var i=1;i<=range;i++)
+{
+printprimenumber(i);
+}
+}
+function ResetPrimeNumber()
+{
+	document.getElementById('show').innerHTML='';
+}
+function DisplayOutputRandomFunction()
+{
+		var inputstr= prompt("Enter the value");
+		if(inputstr.includes(" "))
+			{
+				input=inputstr.replace(" ","");
+			}
+		else input=inputstr;	
+		
+		if(isNaN(input))
+		{
+		document.getElementById('resvalue').innerHTML='The Value Entered "'+input+'" is not a Number.';
+		document.getElementById('resvalue').style.display="inline-block";
+		return;
+		}
+		
+		if(input>10)
+		{
+				document.getElementById('resvalue').innerHTML='The Value Entered "'+input+'" is greater than 10.';
+				document.getElementById('resvalue').style.display="inline-block";
+				return;
+		}
+		var randnumber= Math.floor((Math.random() * 10) + 1);
+		document.getElementById('userValue').innerHTML=input;
+		document.getElementById('userValue').style.display="inline-block";
+		document.getElementById('compvalue').innerHTML=randnumber;
+		document.getElementById('compvalue').style.display="inline-block";
+		
+		var value= document.getElementById('compvalue')
+		if(input==randnumber)
+		{
+			
+			document.getElementById('resvalue').innerHTML='Good work';
+			document.getElementById('resvalue').style.display="inline-block";
+		}
+		else {
+			
+			document.getElementById('resvalue').innerHTML='Not Matched';
+			document.getElementById('resvalue').style.display="inline-block";
+		}
+}
+function ResetOutputRandomFunction()
+{	
+	document.getElementById('userValue').style.display="none";
+	document.getElementById('compvalue').style.display="none";
+	document.getElementById('resvalue').style.display="none";
+}	
+
+function DisplayOutputTime()
+{
+	
+	
+	document.getElementById('todayDayLabel').style.display="inline-block";
+	document.getElementById('todayDateLabel').style.display="inline-block";
+	document.getElementById('todayDateFormat1Label').style.display="inline-block";
+	document.getElementById('todayDateFormat2Label').style.display="inline-block";
+	
+		var today = new Date();
+		
+		
+		var daylist = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Saturday","Sunday"];
+		
+		
+		document.getElementById('todayDayLabel').innerHTML=daylist[today.getDay()];
+		
+		
+		var hrs=today.getHours();
+	
+		var meridian= hrs>=12 ? 'PM':'AM';
+		
+		if(hrs>12)
+		{
+			hrs=hrs-12;
+		}
+		
+		
+		 var dateText = hrs+":"+today.getMinutes()+" "+meridian;
+		 document.getElementById('todayDateLabel').innerHTML=dateText;
+
+		
+		 
+		var dateFormat1= ((today.getMonth() + 1) + "-" + today.getDate() + "-" + today.getFullYear());
+		document.getElementById('todayDateFormat1Label').innerHTML=dateFormat1;
+		
+		
+		
+		var dateFormat2= ((today.getMonth() + 1) + "/" + today.getDate() + "/" + today.getFullYear());
+		document.getElementById('todayDateFormat2Label').innerHTML=dateFormat2;
+	
+				
+}
+function ResetTime()
+{
+	document.getElementById('todayDayLabel').style.display="none";
+	document.getElementById('todayDateLabel').style.display="none";
+	document.getElementById('todayDateFormat1Label').style.display="none";
+	document.getElementById('todayDateFormat2Label').style.display="none";
+}
+
+		var john = { name: "John Smith", age: 23 }
+		var mary = { name: "Mary Key", age: 18 }
+		var bob = { name: "Bob-small", age: 6 }
+		var people = [ john, mary, bob ]
+		
+		displaypeopleSort();
+		
+		
+		function myFunctionSortAge() {
+    people.sort(function(a, b){return a.age - b.age});
+    
+}
+	
+	
+	
+	function displayPeopleSortFunction(i){
+	var infoPeople=document.getElementById("demo").innerHTML;
+	document.getElementById("demo").innerHTML=infoPeople+"Person "+[i]+":- "+ people[i].name + " " + people[i].age + "<br>"
+	}
+		
+		function displayPeopleSort() {
+		document.getElementById("demo").innerHTML="";
+		for(var i=0;i<people.length;i++)
+		{
+			displayPeopleSortFunction(i);
+		}
+}
+
+
+function myFunctionSortName() {
+    people.sort(function(a, b){
+    if(a.name < b.name) return -1;
+    if(a.name > b.name) return 1;
+    return 0;
+}
+)
+}
+
+
+function unique_char()
+{
+	document.getElementById('givenLength').style.display='inline-block';
+	document.getElementById('uniqueLengthlabel').style.display='inline-block';
+	var str=prompt("Enter the String");
+	var str1=str;
+	var uniqueLength="";
+	document.getElementById('givenLength').innerHTML=str;
+	
+	if(str1.includes=" ")
+	{
+		str=str1.replace(" ","");
+	}
+	
+ for (var x=0;x < str.length;x++)
+ {
+		if(uniqueLength.indexOf(str.charAt(x))==-1)
+		{	if(uniqueLength!="")
+			{
+				uniqueLength+=',';
+			}
+			uniqueLength+=str[x];
+			
+			
+ }
+ }
+
+
+document.getElementById('uniqueLengthlabel').innerHTML=uniqueLength;
+console.log(uniqueLength);
+}  
+function resetUniqueChar()
+{
+	document.getElementById('givenLength').style.display='none';
+	document.getElementById('uniqueLengthlabel').style.display='none';
+}
+</script>
+</body>
+
+
+
+
+</html>
