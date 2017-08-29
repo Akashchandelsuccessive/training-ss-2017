@@ -25,9 +25,9 @@
 <hr><hr>
 
 <h1>Calculating all prime numbers between 1 to 999</h1>
-<p id="show"></label></p>
 <button onclick="printnumbers()">Calculate</button>
 <button onclick="ResetPrimeNumber()">Reset</button>
+<p id="show"></label></p>
 
 <hr><hr>
 
@@ -93,6 +93,13 @@ var resultcontainer=document.getElementById('Result').style.display='inline-bloc
 		
 		var checkArithmetic=1;
 			
+			if(isNaN(input1)||(isNaN(input2)))
+			{
+				document.getElementById('Result').innerHTML="Enter valid Number";
+				return;
+			}
+			
+			
 		if(input3=="*")
 		{ temp=input1*input2;
 		
@@ -154,23 +161,23 @@ document.getElementById('result').style.display="block";
 		
 		if (isNaN(input))
 		{
-			alert("Value entered is not a number");
+		
 			document.getElementById('result').innerHTML="Value entered is not a number";
 			
 		}
 		else if(input%1!=0)
 		{
-			alert("Please enter an integer value");
+			
 			document.getElementById('result').innerHTML="Please enter an integer value";
 		}
 		else if(input%2==0)
 		{
-		alert("value is even");
+		
 		document.getElementById('result').innerHTML="value is even";
 		}
 		else if (input%2==1)
 		{
-		alert("value is odd");
+	
 		document.getElementById('result').innerHTML="value is odd";
 		}
 		return;
@@ -333,7 +340,7 @@ function ResetTime()
 		var bob = { name: "Bob-small", age: 6 }
 		var people = [ john, mary, bob ]
 		
-		displaypeopleSort();
+
 		
 		
 		function myFunctionSortAge() {
@@ -376,9 +383,9 @@ function unique_char()
 	var uniqueLength="";
 	document.getElementById('givenLength').innerHTML=str;
 	
-	if(str1.includes=" ")
+	while(str.includes(" "))
 	{
-		str=str1.replace(" ","");
+		str=str.replace(" ","");
 	}
 	
  for (var x=0;x < str.length;x++)
@@ -389,15 +396,11 @@ function unique_char()
 				uniqueLength+=',';
 			}
 			uniqueLength+=str[x];
-			
-			
+		}
  }
- }
-
-
 document.getElementById('uniqueLengthlabel').innerHTML=uniqueLength;
-console.log(uniqueLength);
-}  
+
+}   
 function resetUniqueChar()
 {
 	document.getElementById('givenLength').style.display='none';
