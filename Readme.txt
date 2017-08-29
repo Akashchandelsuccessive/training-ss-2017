@@ -1,0 +1,1 @@
+Readme about repository training-ss-2017
