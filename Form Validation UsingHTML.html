@@ -1,0 +1,149 @@
+<html>
+<head>
+<title>All Controls of HTML</title>
+<script type="text/javascript">
+
+function checkFirstName()
+{
+var fname=document.forms["myForm"]["firstName"].value;
+if(fname=="")
+{
+	document.getElementById('fname').innerHTML="*Enter First name";
+}
+if(!(/^[A-z ]+$/.test(fname)))
+{
+	document.getElementById('fname').innerHTML="*Please enter a valid name";
+}
+if(/^[A-z ]+$/.test(fname))
+{document.getElementById('fname').innerHTML="";}
+
+}
+function checkEmail()
+{
+	var email=document.getElementById('eMail').value;
+
+if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)))
+	 {
+		 document.getElementById('email').innerHTML="*Please enter a valid Email";
+	 }
+if ((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)))
+	 {
+		 document.getElementById('email').innerHTML="";
+	 }
+	 
+}
+
+function checkMobile()
+{
+	
+var mobileNo=document.getElementById('mobile').value;	 
+if((mobileNo.match(/^\d{10}$/))==null)
+	{
+		document.getElementById('mobilelabel').innerHTML="*Please Enter a Valid Mobile Number.";
+	}
+if((mobileNo.match(/^\d{10}$/))==mobileNo)
+	{
+		document.getElementById('mobilelabel').innerHTML="";
+	}
+
+}
+function checkAddress()
+{
+	
+var addressuser=document.getElementById('address').value;
+if(addressuser=="")
+{
+	document.getElementById('addresslabel').innerHTML="*Please Enter the valid address";
+}
+
+
+}
+
+
+function hasWorkExperience()
+{
+	var workexperience=document.getElementById('hasWorkExperienceId').checked;
+	if(workexperience==true)
+{
+	document.getElementById('workExperienceText').style='display:inline-block';
+}
+if(workexperience==false)
+{
+	document.getElementById('workExperienceText').style='visibility:hidden';
+}
+}
+
+function othersDepartment(val)
+{
+	if(val=='Others'||val=='SelectDepartment')
+	{
+		document.getElementById('othersBox').style='display:inline-block';
+	}
+	else
+	document.getElementById('othersBox').style='visibility:hidden';
+}
+
+function checkPasswordMatch()
+{
+	var password=document.getElementById('password').value;
+	var confirmPassword=document.getElementById('confirmPassword').value;
+	if(password!=confirmPassword)
+	{
+		document.getElementById('confirmPasswordLabel').innerHTML="*Password didn't matched";
+	}
+	else
+	document.getElementById('confirmPasswordLabel').innerHTML="";
+}
+
+function validateForm()
+{
+
+}
+function reset()
+{
+document.getElementById("myForm").reset(); 
+
+}
+
+</script>
+</head>
+<body>
+<h1 align='center'><a href="http://www.successivesoftwares.com/">Successive Softwares</a> Employee Registration Form</h1>
+<img src='http://static2.paladea.me/files/styles/productor_mitad/public/default_images/productor.jpg' align='right' height='200' width='200'>
+<form name='myForm'  onsubmit="return false">
+<table align='center' style='table-layout:fixed'>
+
+<tr><td>Firstname:<td> <input type="textbox" name='firstName' size='75' onkeyup='checkFirstName()'><td><p style="color:red"><label id='fname'></label></p></tr>
+
+<tr><td>Lastname: <td><input type='textbox' name='lastName' size='75' ><td><input type='text' style='visibility:hidden' size='55'></tr>
+
+<tr><td>Email: <td><input type='textbox' id='eMail' size='75' onkeyup='checkEmail()'><td><p style="color:red"><label id='email'></label></p></tr>
+
+<tr><td>Mobile: <td><input type='textbox' id='mobile' size='75' onkeyup='checkMobile()'><td><p style="color:red"><label id='mobilelabel'></label></p></tr>
+
+<tr><td>Address: <td><textarea rows='4' cols='70' id='address' onkeyup='checkAddress()'></textarea><td><p style="color:red"><label id='addresslabel'></label></p></tr>
+
+<tr><td>Gender: 
+<td>Male   <input type='radio' name='radioOption' id='male' value='Male'>
+Female <input type='radio' name='radioOption' id='female' value='Female'>
+Others <input type='radio' name='radioOption' id='others'><td><p><label id=''></label></p></tr>
+
+<tr><td>Has work Experience: <td><input type='checkbox' id='hasWorkExperienceId'  onclick="hasWorkExperience();">
+<input type="textbox" id= 'workExperienceText' size='73' style="visibility:hidden" placeholder='Work experience(in month)'></tr>
+<tr><td>Department: <td><select id='department' onchange="othersDepartment(this.value);">
+<option value='SelectDepartment'>Select Department</option>
+<option value='DotNet' >DotNet</option>
+<option value='PHP'>PHP</option>
+<option value='Node'>Node</option>
+<option value='Android'>Android</option>
+<option value='Others'>Others</option></select>  <input type='text' id='othersBox' style='display:inline-block' placeholder='Please type your department' size='55'>
+</tr>
+<tr><td>Password: <td><input type='password' id='password'size='75'><td><p><label id=''></label></p></tr>
+<tr><td>Confirm password: <td><input type='password' id='confirmPassword'size='75' onkeyup='checkPasswordMatch();'><td><p style="color:red"><label id='confirmPasswordLabel'></label></p></tr>
+<tr><td><input type='submit' onclick='validateForm()'><td><input type='submit' value='Reset' onclick='reset()'></tr>
+</table>
+</form>
+<p id='demo'></p>
+</body>
+
+</html>
