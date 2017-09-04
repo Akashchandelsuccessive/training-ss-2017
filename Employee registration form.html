@@ -83,7 +83,7 @@ function hasWorkExperienceText()
 
 function othersDepartment(val)
 {
-	if(val=='Others'||val=='SelectDepartment')
+	if(val=='Others')
 	{
 		document.getElementById('othersBox').style='display:inline-block';
 	}
@@ -194,7 +194,7 @@ if(val=='Others')
 		var othersBoxDepartment=document.getElementById('othersBox').value;
 	if( othersBoxDepartment=="")
 	{
-		document.getElementById('othersDepartmentLabel').innerHTML="*Please enter your Department";hasDepartment=0;y
+		document.getElementById('othersDepartmentLabel').innerHTML="*Please enter your Department";hasDepartment=0;
 	}
 	else {document.getElementById('othersDepartmentLabel').innerHTML="";hasDepartment=1;}
 
@@ -204,21 +204,33 @@ if(val=='Others')
 	
 
 var password=document.getElementById('password').value;
-	var confirmPassword=document.getElementById('confirmPassword').value;
+var confirmPassword=document.getElementById('confirmPassword').value;
+	
+	
+
+	
+	if(password=="")
+	{
+	 document.getElementById('passwordLabel').innerHTML="*Please enter your password";
+	}
+	else {document.getElementById('passwordLabel').innerHTML="";}
+	
 	if(password!=confirmPassword)
 	{
 		document.getElementById('confirmPasswordLabel').innerHTML="*Password didn't matched";
 		hasPassword=0;
 		
 	}
-	else
+	else if(password!="")
 	{document.getElementById('confirmPasswordLabel').innerHTML=""; hasPassword=1;}
+	
 	
 var valueGender=document.getElementsByName('radioOption');
 
 valueGender.forEach(function(obj){
 if(obj.checked==true)
 	{
+		document.getElementById('genderLabel').innerHTML="";
 	hasGender=1;
 	return;
 	}
@@ -239,10 +251,20 @@ if(hasGender==0)
 	
 	
 }
-function reset()
-{
-document.getElementById("myForm").reset(); 
 
+function reset1()
+{
+
+document.getElementById('fname').innerHTML="";
+ document.getElementById('email').innerHTML="";
+ document.getElementById('addresslabel').innerHTML="";
+ document.getElementById('hasWorkExperienceLabel').innerHTML="";
+ document.getElementById('confirmPasswordLabel').innerHTML="";
+ document.getElementById('othersDepartmentLabel').innerHTML="";
+ document.getElementById('mobilelabel').innerHTML="";
+document.getElementById('passwordLabel').innerHTML="";
+document.getElementById('genderLabel').innerHTML="";
+ 
 }
 
 </script>
@@ -266,23 +288,23 @@ document.getElementById("myForm").reset();
 
 <tr align="right"><td>  Gender: <td align="left" style="padding-left:114px">    <input type='radio' name='radioOption' id='male' value='Male' >Male  
 <input type='radio' name='radioOption' id='female' value='Female'>Female 
-<input type='radio' name='radioOption' id='others'>Others<td><p style="color:red"><label id='genderLabel' align="left"></label></p> </tr>
+<input type='radio' name='radioOption' id='others'>Others<td><p style="color:red" align="left"><label id='genderLabel'></label></p> </tr>
 
 <tr align="right"><td>Has work Experience: <td><input type='checkbox' id='hasWorkExperienceId'  onclick="hasWorkExperience();">
-<input type="textbox" id= 'workExperienceText' size='73' style="visibility:hidden" placeholder='Work experience(in month)' onkeyup="hasWorkExperienceText()"><td align="left"><p style="color:red"><label id='hasWorkExperienceLabel'></label></p></tr>
+<input type="textbox" id= 'workExperienceText' size='72' style="visibility:hidden" placeholder='Work experience(in month)' onkeyup="hasWorkExperienceText()"><td align="left"><p style="color:red"><label id='hasWorkExperienceLabel'></label></p></tr>
 <tr  align="right"><td>Department: <td><select id='department' onchange="othersDepartment(this.value);">
-
-<option value='SelectDepartment'>Select Department</option>
+<option value='Others'>Others</option>
 <option value='DotNet' >DotNet</option>
 <option value='PHP'>PHP</option>
 <option value='Node'>Node</option>
 <option value='Android'>Android</option>
-<option value='Others'>Others</option></select>  <input type='text' id='othersBox' style='display:inline-block' placeholder='Please type your department' size='55' onkeyup="checkOthersDepartment()">
+</select>  <input type='text' id='othersBox' style='display:visibility:hidden' placeholder='Please type your department' size='64.5' onkeyup="checkOthersDepartment()">
 <td align="left"><p style="color:red"><label id='othersDepartmentLabel'></label></p></tr>
-<tr align="right"><td>Password: <td><input type='password' id='password'size='75'><td><p><label id=''></label></p></tr>
-<tr align="right"><td>Confirm password: <td><input type='password' id='confirmPassword'size='75' onkeyup='checkPasswordMatch();'><td><p style="color:red"><label id='confirmPasswordLabel'></label></p></tr>
+<tr align="right"><td>Password: <td><input type='password' id='password'size='75'><td><p style="color:red" align="left "><label id='passwordLabel'></label></p></tr>
+<tr align="right"><td>Confirm password: <td><input type='password' id='confirmPassword'size='75' onkeyup='checkPasswordMatch();'>
+<td><p style="color:red" align="left"><label id='confirmPasswordLabel'></label></p></tr>
 <tr><td><td></tr>
-<tr><td align="right"><input type='submit' onclick='validateForm()'><td><input type='submit' value='Reset' onclick='reset()'></tr>
+<tr><td align="right"><input type='submit' onclick='validateForm()'><td><button type='button' value='Reset' onclick='reset1();reset();'>Reset</button></tr>
 </table>
 </form>
 <center><img src='http://static2.paladea.me/files/styles/productor_mitad/public/default_images/productor.jpg' height='200' width='200' align='middle'></center>
