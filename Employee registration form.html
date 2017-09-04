@@ -5,7 +5,7 @@
 
 function checkFirstName()
 {
-var fname=document.forms["myForm"]["firstName"].value;
+var fname=document.getElementById('firstName').value;
 if(fname=="")
 {
 	document.getElementById('fname').innerHTML="*Enter First name";
@@ -101,6 +101,8 @@ function checkOthersDepartment()
 	else {document.getElementById('othersDepartmentLabel').innerHTML="";}
 }
 
+
+
 function checkPasswordMatch()
 {
 	var password=document.getElementById('password').value;
@@ -111,12 +113,22 @@ function checkPasswordMatch()
 	}
 	else
 	document.getElementById('confirmPasswordLabel').innerHTML="";
+
+///^[a-zA-Z0-9!@#$%^&*]{6,16}$/
+
+
 }
 
 function validateForm()
 {
 var hasName,hasMobile,hasAddress,hasEmail,hasWork,hasPassword,hasDepartment,hasGender;
-var fname=document.forms["myForm"]["firstName"].value;
+
+var fname=document.getElementById('firstName');
+
+fname=fname.value.trim();
+
+document.getElementById('firstName').value=fname;
+
 if(fname=="")
 {
 	document.getElementById('fname').innerHTML="*Enter First name";
@@ -132,7 +144,13 @@ if(!(/^[A-z ]+$/.test(fname)))
 if(/^[A-z ]+$/.test(fname))
 {document.getElementById('fname').innerHTML="";hasName=1;}
 
+var lastName=document.getElementById('lastName');
+lastName=lastName.value.trim();
+document.getElementById('lastName').value=lastName;
+
 var email=document.getElementById('eMail').value;
+email=email.trim();
+document.getElementById('eMail').value=email;
 
 if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)))
 	 {
@@ -146,6 +164,8 @@ if ((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)))
 	 }
 	 
 var mobileNo=document.getElementById('mobile').value;	 
+mobileNo=mobileNo.trim();
+document.getElementById('mobile').value=mobileNo;
 if((mobileNo.match(/^\d{10}$/))==null)
 	{
 		document.getElementById('mobilelabel').innerHTML="*Please Enter a Valid Mobile Number.";hasMobile=0;
@@ -171,6 +191,8 @@ var workexperience=document.getElementById('hasWorkExperienceId').checked;
 {
 	document.getElementById('workExperienceText').style='display:inline-block';
 	var workExperienceText=document.getElementById('workExperienceText').value;
+	workExperienceText=workExperienceText.trim();
+    document.getElementById('workExperienceText').value=workExperienceText;
 	if( workExperienceText=="")
 	{
 		document.getElementById('hasWorkExperienceLabel').innerHTML="*Please enter your experience";
@@ -192,6 +214,8 @@ if(val=='Others')
 	{
 		document.getElementById('othersBox').style='display:inline-block';
 		var othersBoxDepartment=document.getElementById('othersBox').value;
+		othersBoxDepartment=othersBoxDepartment.trim();
+		document.getElementById('othersBox').value=othersBoxDepartment;
 	if( othersBoxDepartment=="")
 	{
 		document.getElementById('othersDepartmentLabel').innerHTML="*Please enter your Department";hasDepartment=0;
@@ -205,10 +229,6 @@ if(val=='Others')
 
 var password=document.getElementById('password').value;
 var confirmPassword=document.getElementById('confirmPassword').value;
-	
-	
-
-	
 	if(password=="")
 	{
 	 document.getElementById('passwordLabel').innerHTML="*Please enter your password";
@@ -225,21 +245,33 @@ var confirmPassword=document.getElementById('confirmPassword').value;
 	{document.getElementById('confirmPasswordLabel').innerHTML=""; hasPassword=1;}
 	
 	
-var valueGender=document.getElementsByName('radioOption');
+	var tryname=document.getElementById('firstName').value;
+	console.log(tryname);
+	///^[a-zA-Z0-9!@#$%^&*]{6,16}$/
+	
+	console.log((!(/^?=.*[a-z]$/).test(tryname)))
+	
+		
 
+	
+	
+	
+	
+var valueGender=document.getElementsByName('radioOption');
+hasGender=0;
 valueGender.forEach(function(obj){
-if(obj.checked==true)
+if(obj.checked==true && !hasGender)
 	{
-		document.getElementById('genderLabel').innerHTML="";
+	document.getElementById('genderLabel').innerHTML="";
 	hasGender=1;
-	return;
+
 	}
-	else hasGender=0;
+	
 
 })
 if(hasGender==0)
 {
-	document.getElementById('genderLabel').innerHTML="Please select your gender";
+	document.getElementById('genderLabel').innerHTML="*Please select your gender";
 	
 }
 
@@ -264,21 +296,23 @@ document.getElementById('fname').innerHTML="";
  document.getElementById('mobilelabel').innerHTML="";
 document.getElementById('passwordLabel').innerHTML="";
 document.getElementById('genderLabel').innerHTML="";
+document.getElementById('othersBox').style.visibility='hidden';
+ document.getElementById('workExperienceText').style.visibility='hidden';
  
 }
 
 </script>
 </head>
 <body>
-<h1 align='center'><a href="http://www.successivesoftwares.com/" style="text-decoration:none">Successive Softwares</a><font color="black"> Employee Registration Form</font></h1>
+<h1 align='center'><a href="http://www.successivesoftwares.com/" style="text-decoration:none" target="_blank">Successive Softwares</a><font color="black"> Employee Registration Form</font></h1>
 
 <form name='myForm'  onsubmit="return false">
 <br><br>
 <table align='center' style='table-layout:fixed'>
 
-<tr align="right"><td width="25%">Firstname:<td width="50%"> <input type="textbox" name='firstName' size='75' onkeyup='checkFirstName()'><td  align="left" width=25%><p style="color:red"><label id='fname'></label></p></tr>
+<tr align="right"><td width="25%">Firstname:<td width="50%"> <input type="textbox" id='firstName' size='75' onkeyup='checkFirstName()'><td  align="left" width=25%><p style="color:red"><label id='fname'></label></p></tr>
 
-<tr align="right"><td>Lastname: <td><input type='textbox' name='lastName' size='75' ><td align="left"><input type='text' style='visibility:hidden' size='55'></tr>
+<tr align="right"><td>Lastname: <td><input type='textbox' id='lastName' size='75' ><td align="left"><input type='text' style='visibility:hidden' size='55'></tr>
 
 <tr align="right"><td>Email: <td><input type='textbox' id='eMail' size='75' onchange='checkEmail()'><td align="left"><p style="color:red"><label id='email'></label></p></tr>
 
@@ -293,12 +327,13 @@ document.getElementById('genderLabel').innerHTML="";
 <tr align="right"><td>Has work Experience: <td><input type='checkbox' id='hasWorkExperienceId'  onclick="hasWorkExperience();">
 <input type="textbox" id= 'workExperienceText' size='72' style="visibility:hidden" placeholder='Work experience(in month)' onkeyup="hasWorkExperienceText()"><td align="left"><p style="color:red"><label id='hasWorkExperienceLabel'></label></p></tr>
 <tr  align="right"><td>Department: <td><select id='department' onchange="othersDepartment(this.value);">
-<option value='Others'>Others</option>
+<option value=''</option>
 <option value='DotNet' >DotNet</option>
 <option value='PHP'>PHP</option>
 <option value='Node'>Node</option>
 <option value='Android'>Android</option>
-</select>  <input type='text' id='othersBox' style='display:visibility:hidden' placeholder='Please type your department' size='64.5' onkeyup="checkOthersDepartment()">
+<option value='Others'>Others</option>
+</select>  <input type='text' id='othersBox' style='visibility:hidden' placeholder='Please type your department' size='64.5' onkeyup="checkOthersDepartment()">
 <td align="left"><p style="color:red"><label id='othersDepartmentLabel'></label></p></tr>
 <tr align="right"><td>Password: <td><input type='password' id='password'size='75'><td><p style="color:red" align="left "><label id='passwordLabel'></label></p></tr>
 <tr align="right"><td>Confirm password: <td><input type='password' id='confirmPassword'size='75' onkeyup='checkPasswordMatch();'>
