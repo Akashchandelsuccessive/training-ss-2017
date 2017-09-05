@@ -1,0 +1,29 @@
+h1{
+	color: #ff0000;
+}
+#training1{
+	color: #ff0000;
+}
+.training2{
+	color: #990000;
+	background-color: #FC9800;
+}
+.training3{
+	background-image: url("butterfly.gif");
+	background-color: #FC9800;
+}
+.training4{
+	background-image: url("butterfly.gif");
+	background-color: #FC9800;
+	background-repeat: no-repeat;
+}
+.training5{
+	background-image: url("butterfly.gif");
+	background-color: #FC9700;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-position: 50% 80%;	
+}
+.training6{
+	background: #FFCC66 url("butterfly.gif") no-repeat fixed right bottom;
+}

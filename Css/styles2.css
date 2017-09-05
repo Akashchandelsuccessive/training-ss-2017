@@ -1,0 +1,39 @@
+.training1 h1{
+font-family:arial,verdana.sans-serif;
+}
+.training1 h3{
+	font-family:"Times New Roman", serif;
+}
+
+.training2 h1{
+	font-family: arial,verdana,sans-serif;
+}
+.training2 h3{
+	font-family: "Times New Roman", serif;
+	font-style: italic;
+}
+.training3 h1{
+	font-variant:small-caps;
+}
+.training3 h3{
+	font-variant: normal;
+}
+.training4 td{
+	font-family:arial;
+	font-weight: bold;	
+}
+.training5 h1{
+	font-size:'40px';
+}
+.training5 h2{
+	font-size:'10cm';
+}
+.training5 h3{
+	font-size:'150%';
+}
+.training5 h4{
+	font-size:2em;
+}
+.training6 h1{
+	font: oblique small-caps bold 1em  arial;
+}
