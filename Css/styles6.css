@@ -1,0 +1,15 @@
+body{
+	margin: 100px 30px 20px 40px;
+}
+.training1 p{
+	margin: 5px 50px 5px 50px;
+	text-align:justify;
+}
+.training2 h1{
+	background:red;
+	padding: 10px 30px 20px 20px;
+}
+.training2  h2{
+	background:purple;
+	padding-left:120px;
+}

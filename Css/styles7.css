@@ -1,0 +1,40 @@
+
+.training1 h1{
+	border-width:thick;
+	border-style: dotted;
+	border-color: gold;
+}
+.training1 h2{
+	border-width:20px;
+	border-style:outset;
+	border-color: red;
+}
+.training1 h3{
+	border:1px dashed blue;
+}
+.training1 p{
+	border:2px solid orange;
+}
+.training1 h4{
+		border-top-width: thick;
+		border-top-style: solid;
+		border-top-color: red;
+
+		border-bottom-width: thick;
+		border-bottom-style: solid;
+		border-bottom-color: blue;
+
+		border-right-width: thick;
+		border-right-style: solid;
+		border-right-color: green;
+
+		border-left-width: thick;
+		border-left-style: solid;
+		border-left-color: orange;
+}
+.training2 p{
+	width:300px;
+	height:600px;
+	border: 1px solid black;
+	background-color:lightblue;
+}

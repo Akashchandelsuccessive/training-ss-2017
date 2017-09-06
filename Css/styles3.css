@@ -1,0 +1,33 @@
+.training1 p{
+text-indent: 30px;
+}
+.training2 th{
+	text-align:right;
+}
+.training2 td{
+	text-align: center;
+}
+.training2 p{
+	text-align: justify;
+}
+.training3 h1{
+	text-decoration:underline;
+}
+.training3 h2{
+	text-decoration:underline;
+}
+.training3 h3{
+	text-decoration:line-through;
+}
+.training4 h1{
+	letter-spacing:3px;
+}
+.training4 p{
+	letter-spacing:6px;
+}
+.training5 h1{
+	text-transform: uppercase;
+}
+.training5 li{
+	text-transform:capitalize;
+}
