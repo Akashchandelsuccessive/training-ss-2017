@@ -1,0 +1,30 @@
+#ten_diamonds{
+	top:205px;
+	left:205px;
+	z-index:1;
+	position:absolute;
+}
+#jack_diamonds{
+	top:220px;
+	left:215px;
+	z-index:2;
+		position:absolute;
+}
+#queen_diamonds{
+	top:235px;
+	left:225px;
+	z-index:3;
+		position:absolute;
+}
+#king_diamonds{
+	top:250px;
+	left:235px;
+	z-index:4;
+		position:absolute;
+}
+#ace_diamonds{
+	top:265px;
+	left:245px;
+	z-index:5;
+		position:absolute;
+}

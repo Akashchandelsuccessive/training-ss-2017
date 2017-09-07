@@ -1,0 +1,33 @@
+table,td,th{
+	border: 1px solid black;
+	padding:20px;
+border-collapse:collapse;
+}
+table{
+	width:100%;
+	font-family:arial;
+}
+th{
+	text-transform:uppercase;
+
+}
+td,th{
+	width:16.667%;
+	text-align:center;
+	padding:10px;
+	text-overflow: ellipsis;
+	word-break:break-all;
+}
+.even {
+  background-color: #CC9999;
+ }
+ .imag {
+	 width:100px; 
+	 height:100px;
+ }
+.odd {
+  background-color: #9999CC;
+ }
+ .even:hover,.odd:hover{
+	 background-color:yellow;
+ }
